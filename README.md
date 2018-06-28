@@ -21,6 +21,6 @@ az vm create -n <vm_name> -g <rg_name> --image cisco:cisco-csr-1000v:16_7:16.7.1
 ```
 
 * [```customdata1.txt```](examples/customdata1.txt) - This sample Custom Data bootstrap files provides an example of how to use following       Sections - "IOS configuration", "Python package" and "Scripts". If this example bootstrap file provided as a input to Custom data         for CSR in Azure, It will achieve the following on first boot up - Day 0:
-      1. Configure the CSR with Configuration commands provided in section - 'IOS configuration'
-      2. Run the [```packetDropsReporter.py```](scripts/packetDropsReporter.py) script in Guestshell.
-      3. Install python package csr_azure_guestshell with --user argument.
+      - Configure the CSR with Configuration commands provided in section - 'IOS configuration'
+      - Run the [```packetDropsReporter.py```](scripts/packetDropsReporter.py) script in Guestshell.
+      - Install python package csr_azure_guestshell with --user argument.
