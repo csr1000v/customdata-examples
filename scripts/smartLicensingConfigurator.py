@@ -38,11 +38,12 @@ def configure_smart_licensing(idtoken, throughput):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script to Configure Smart licensing on CSR")
-    parser.add_argument('--idtoken', action='store', dest='idtoken',
+    parser.add_argument('--idtoken', action='store', dest='idtoken', type=str,
                         help='provide account idtoken string')
-    parser.add_argument('--throughtput', help='provide desired throughtput level in MB. default is 2500', action='store',
+    parser.add_argument('--throughtput', help='provide desired throughtput level in MB. default is 2500',
+                        action='store', type=str,
                         dest='throughput', default='2500')
     args = parser.parse_args()
     logger.info("idtoken: {}".format(args.idtoken))
     logger.info("throughput: {}".format(args.throughput))
-    configure_smart_licensing()
+    configure_smart_licensing(args.idtoken, args.idtoken)
