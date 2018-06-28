@@ -28,7 +28,7 @@ def report_drops(entries):
     curtime = datetime.datetime.now()
 
     with open(output_file, 'wa') as f:
-        f.write( str(curtime) + output_file )
+        f.write( str(curtime) + " : " + entries )
 
 def execute_command(command):
     cmd_output = cli.execute(command)
@@ -66,5 +66,4 @@ if __name__ == "__main__":
     while args.drops:
         get_stat_drop()
         # sleep for 5 minutes
-        print("in here")
         time.sleep(300)
