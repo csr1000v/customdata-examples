@@ -16,7 +16,7 @@ Scripts dir in this repository contains various scripts that can be provided in 
 Examples dir in this repository contains examples of Custom Data bootstrap config files. Any of the examples in Examples dir can be used as a input to Custom Data for CSR in Azure. 
 
 E.g., To launch a CSR with [```customdata1.txt```](examples/customdata1.txt) as a input to Custom data for CSR in Azure use --custom-data argument.
-az vm create -n <vm_name> -g <rg_name> --image cisco:cisco-csr-1000v:16_7:16.7.120171201 --custom-data customdata1.txt
+      az vm create -n <vm_name> -g <rg_name> --image cisco:cisco-csr-1000v:16_7:16.7.120171201 --custom-data customdata1.txt
 
 * [```customdata1.txt```](examples/customdata1.txt) - This sample Custom Data bootstrap files provides an example of how to use following Sections - "IOS configuration", "Python package" and "Scripts". If this example bootstrap file provided as a input to Custom data for CSR in Azure, It will achieve the following on first boot up - Day 0:
 1. Configure the CSR with Configuration commands provided in section - 'IOS configuration'
