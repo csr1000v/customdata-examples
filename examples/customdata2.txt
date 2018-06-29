@@ -1,0 +1,5 @@
+Section: Scripts
+https://raw.githubusercontent.com/csr1000v/customdata-examples/master/scripts/smartLicensingConfigurator.py --idtoken "<token_string>" --throughput <throughput_value>
+
+Section: License
+TechPackage:security
