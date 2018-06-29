@@ -15,11 +15,16 @@ Scripts directory in this repository contains various scripts that can be provid
 ## Examples
 Examples directory in this repository contains examples of Custom Data bootstrap config files. Any of the examples in Examples dir can be used as a input to Custom Data for CSR in Azure. 
 
-- [```customdata1.txt```](examples/customdata1.txt) - This sample Custom Data bootstrap files provides an example of how to use following       Sections - "IOS configuration", "Python package" and "Scripts". If this example bootstrap file provided as a input to Custom data         for CSR in Azure, It will achieve the following on first boot up - Day 0:
+- [```customdata1.txt```](examples/customdata1.txt) - This sample Custom Data bootstrap file provides an example of how to use following       Sections - "IOS configuration", "Python package" and "Scripts". If this example bootstrap file provided as a input to Custom data         for CSR in Azure, It will achieve the following on first boot up - Day 0:
   - 1. Configure the CSR with Configuration commands provided in section - 'IOS configuration'
     2. Run the [```packetDropsReporter.py```](scripts/packetDropsReporter.py) script in Guestshell.
     3. Install python package csr_azure_guestshell with --user argument.
 
+- [```customdata2.txt```](examples/customdata2.txt) - This sample Custom Data bootstrap file provides an example of how to use following       Sections - "Scripts" and "License". If this example bootstrap file provided as a input to Custom data for CSR in Azure, It will do 
+    the following on first boot up - Day 0:
+  - 1. Run the [```smartLicensingConfigurator.py```](scripts/smartLicensingConfigurator.py) script in Guestshell. This script will configure the smart licensing on CSR on Day 0 with the throughput value you provided.
+    2. Configure CSR with the technology package mentioned in "license" section of Custom data 
+    
 E.g., To launch a CSR with [```customdata1.txt```](examples/customdata1.txt) as a input to Custom data for CSR in Azure use --custom-data argument.
 ```
 az vm create -n <vm_name> -g <rg_name> --image cisco:cisco-csr-1000v:16_7:16.7.120171201 --custom-data customdata1.txt --data-disk-sizes-gb 8 --availability-set <av_set_name> --nics nic1 nic2 --admin-username <username> --admin-password <password> --authentication-type password -l westus --size Standard_DS4_v2 
