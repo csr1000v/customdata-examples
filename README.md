@@ -22,5 +22,5 @@ Examples directory in this repository contains examples of Custom Data bootstrap
 
 E.g., To launch a CSR with [```customdata1.txt```](examples/customdata1.txt) as a input to Custom data for CSR in Azure use --custom-data argument.
 ```
-az vm create -n <vm_name> -g <rg_name> --image cisco:cisco-csr-1000v:16_7:16.7.120171201 --data-disk-sizes-gb 8 --availability-set < av_set_name> --nics nic1 nic2 nic3 nic4 --admin-username azureuser --admin-password "+Cisco123456" --authentication-type password -l westus --size Standard_DS4_v2 --custom-data customdata1.txt
+az vm create -n <vm_name> -g <rg_name> --image cisco:cisco-csr-1000v:16_7:16.7.120171201 --custom-data customdata1.txt --data-disk-sizes-gb 8 --availability-set <av_set_name> --nics nic1 nic2 --admin-username <username> --admin-password <password> --authentication-type password -l westus --size Standard_DS4_v2 
 ```
