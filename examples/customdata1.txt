@@ -8,7 +8,7 @@ description "Static IP address configuration"
 ip address dhcp
 
 Section: scripts
-https://raw.githubusercontent.com/csr1000v/customdata-examples/master/scripts/smartLicensingConfigurator.py <idtoken_value> 2500
+https://raw.githubusercontent.com/csr1000v/customdata-examples/master/scripts/packetDropsReporter.py 
 
 Section: Python package
 csr_azure_guestshell { --user }
