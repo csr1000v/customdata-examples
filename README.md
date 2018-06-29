@@ -6,6 +6,7 @@ The official documentation of Custom Data feature resides at:
 https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/azu/b_csr1000config-azure.html
 
 The official documentation for IOS XE - Guestshell can be found at:
+
 https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/prog/configuration/166/b_166_programmability_cg/guest_shell.html
 
 ## Scripts 
