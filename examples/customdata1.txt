@@ -11,4 +11,4 @@ Section: scripts
 https://raw.githubusercontent.com/csr1000v/customdata-examples/master/scripts/packetDropsReporter.py 
 
 Section: Python package
-csr_azure_guestshell { --user }
+ncclient 0.6.0
