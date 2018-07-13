@@ -21,7 +21,7 @@ Examples directory in this repository contains examples of Custom Data bootstrap
 - [```customdata1.txt```](examples/customdata1.txt) - This sample Custom Data bootstrap file provides an example of how to use following       Sections - "IOS configuration", "Python package" and "Scripts". If this example bootstrap file provided as a input to Custom data         for CSR in Azure, It will achieve the following on first boot up - Day 0:
   - 1. Configure the CSR with Configuration commands provided in section - 'IOS configuration'
     2. Run the [```packetDropsReporter.py```](scripts/packetDropsReporter.py) script in Guestshell.
-    3. Install python package csr_azure_guestshell with --user argument.
+    3. Install python package ncclient's version 0.6.0. ncclient is a set of python library to write your netconf client to programmatically configure IOS XE devices. More info on ncclient, please visit https://github.com/ncclient/ncclient.
 
 - [```customdata2.txt```](examples/customdata2.txt) - This sample Custom Data bootstrap file provides an example of how to use following       Sections - "Scripts" and "License". If this example bootstrap file provided as a input to Custom data for CSR in Azure, It will do 
     the following on first boot up - Day 0:
