@@ -18,7 +18,7 @@ except Exception as e:
 
 def report_drops(entries):
     home = os.path.expanduser('~')
-    output_dir = home + "dropsReporterOutput"
+    output_dir = home + "/dropsReporterOutput"
     try:
         os.makedirs(output_dir)
     except Exception as e:
