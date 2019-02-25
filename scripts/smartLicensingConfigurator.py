@@ -50,4 +50,4 @@ if __name__ == "__main__":
     logger.info("idtoken: {}".format(args.idtoken))
     logger.info("throughput: {}".format(args.throughput))
     logger.info("email: {}".format(args.email))
-    configure_smart_licensing(args.email, args.idtoken, args.idtoken)
+    configure_smart_licensing(args.email, args.idtoken, args.throughput)
