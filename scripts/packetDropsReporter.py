@@ -20,7 +20,8 @@ def report_drops(entries):
     home = os.path.expanduser('~')
     output_dir = home + "/dropsReporterOutput"
     try:
-        os.makedirs(output_dir)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
     except Exception as e:
         logger.exception(e)
 
