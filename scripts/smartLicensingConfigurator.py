@@ -26,12 +26,11 @@ def configure_smart_licensing(email, idtoken, throughput):
     destination transport-method http
     no destination transport-method email
     destination address http https://tools.cisco.com/its/service/oddce/services/DDCEService
-    
-    do license smart register idtoken {}
-    platform hardware throughput level MB {}
-    '''.format(email, idtoken, throughput)
+    '''.format(email)
     logger.info("Trying to configure smart licensing. Configs: {}".format(smart_licensing_configuration))
-    cli.configure(smart_licensing_configuration)
+    cli.configurep(smart_licensing_configuration)
+    cli.executep('license smart register idtoken {}'.format(idtoken))
+    cli.configurep('platform hardware throughput level MB {}'.format(throughput))
     return True
 
 if __name__ == "__main__":
