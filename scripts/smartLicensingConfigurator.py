@@ -29,7 +29,7 @@ def configure_smart_licensing(email, idtoken, throughput):
     '''.format(email)
     logger.info("Trying to configure smart licensing. Configs: {}".format(smart_licensing_configuration))
     cli.configurep(smart_licensing_configuration)
-    cli.executep('do license smart register idtoken {}'.format(idtoken))
+    cli.executep('license smart register idtoken {}'.format(idtoken))
     cli.configurep('platform hardware throughput level MB {}'.format(throughput))
     return True
 
