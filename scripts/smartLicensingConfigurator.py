@@ -49,7 +49,7 @@ def configure_smart_licensing(email, idtoken, throughput):
             logger.info("Successfully configured Smart Licensing and Throughput level")
             return True
     
-    logger.info("There were some issues with configuring Smart Licensing or Throughput level which did not succeed after 5 attempts. Please review configuration")
+    logger.warning("There were some issues with configuring Smart Licensing or Throughput level which did not succeed after 5 attempts. Please review configuration")
     return False
     
 if __name__ == "__main__":
