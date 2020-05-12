@@ -28,7 +28,7 @@ def report_drops(entries):
     output_file = output_dir + "/drops_report.txt"
     curtime = datetime.datetime.now()
 
-    with open(output_file, 'wa') as f:
+    with open(output_file, 'a') as f:
         f.write( str(curtime) + " : " + entries )
 
 def execute_command(command):
