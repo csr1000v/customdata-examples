@@ -19,7 +19,7 @@ try:
 except Exception as e:
     logger.warning("failed to import cli module")
 
-def configure_smart_licensing(idtoken, bootlevel):
+def configure_smart_licensing(idtoken, throughput):
     license_status = False
     throughput_status = False
     if idtoken is None:
@@ -30,28 +30,26 @@ def configure_smart_licensing(idtoken, bootlevel):
     license smart transport smart
     license smart url smart  https://smartreceiver.cisco.com/licservice/license
     '''
-    boot_level_config = '''
-    license boot level {} addon dna-premier
-    '''.format(bootlevel)
     logger.info("Trying to configure smart licensing. Configs: {}".format(smart_licensing_configuration))
     for i in range(5):
-        logger.info("In FOR loop: i is {}".format(i))
         logger.info("executing smart_licensing_configuration")
         cli.configurep(smart_licensing_configuration)
         logger.info("executing license smart trust idtoken command..")
         cli.executep('license smart trust idtoken {} local'.format(idtoken))
-        #logger.info("executing boot_level_config")
-        #cli.configurep(boot_level_config)
-        #time.sleep(30)
+        logger.info("executing platform hardware throughput level MB")
+        cli.configurep('platform hardware throughput level MB {}'.format(throughput)
         logger.info("executing show license tech support | inc ENABLED")
         output = cli.cli('show license tech support | inc ENABLED')
-        logger.info("Output of show license summary: {}".format(output))
         if "Smart Licensing is ENABLED" in output:
-            logger.info("Enabling Smart licensing is successful. ")
-            logger.info('Please reboot using reload command to set the boot level. When CSR comes up, configure the Throughput using "platform hardware throughput level MB <value>" command')
+            logger.info("Smart licensing successful")
             license_status = True
-            cli.configurep('platform hardware throughput level MB 250')
-            #cli.executep('reload')
+        output = cli.cli('sh platform hardware throughput level')
+        logger.info("Throughput level set to: {}".format(output))
+        if str(throughput) in output:
+            logger.info("Throughput level set successfully")
+            throughput_status = True
+        if license_status and throughput_status:
+            logger.info("Successfully configured Smart Licensing and Throughput level")
             return True
     
     logger.warning("There were some issues with configuring Smart Licensing which did not succeed after 5 attempts. Please review configuration")
@@ -61,11 +59,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script to Configure Smart licensing on CSR")
     parser.add_argument('--idtoken', action='store', dest='idtoken', 
                         help='provide account idtoken string')
-    parser.add_argument('--bootlevel', choices=['Network-Advantage', 'Network-Essentials', 'Network-Premier'], 
-                        help='provide desired boot level',
+    parser.add_argument('--throughput', help='provide desired throughtput level in MB. default is 2500',
                         action='store',
-                        dest='bootlevel', default='Network-Premier')
+                        dest='throughput', default='2500')
     args = parser.parse_args()
     logger.info("idtoken: {}".format(args.idtoken))
-    logger.info("bootlevel: {}".format(args.bootlevel))
+    logger.info("throughput: {}".format(args.throughput))
     configure_smart_licensing(args.idtoken, args.bootlevel)
