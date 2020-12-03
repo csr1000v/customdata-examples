@@ -42,7 +42,7 @@ def configure_smart_licensing(idtoken, bootlevel):
         cli.executep('license smart trust idtoken {} local'.format(idtoken))
         #logger.info("executing boot_level_config")
         #cli.configurep(boot_level_config)
-        time.sleep(30)
+        #time.sleep(30)
         logger.info("executing show license tech support | inc Smart")
         output = cli.cli('show license tech support | inc Smart')
         logger.info("Output of show license summary: {}".format(output))
