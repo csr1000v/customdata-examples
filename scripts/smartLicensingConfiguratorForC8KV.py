@@ -37,7 +37,7 @@ def configure_smart_licensing(idtoken, throughput):
         logger.info("executing license smart trust idtoken command..")
         cli.executep('license smart trust idtoken {} local'.format(idtoken))
         logger.info("executing platform hardware throughput level MB")
-        cli.configurep('platform hardware throughput level MB {}'.format(throughput)
+        cli.configurep('platform hardware throughput level MB {}'.format(throughput))
         logger.info("executing show license tech support | inc ENABLED")
         output = cli.cli('show license tech support | inc ENABLED')
         if "Smart Licensing is ENABLED" in output:
@@ -65,4 +65,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     logger.info("idtoken: {}".format(args.idtoken))
     logger.info("throughput: {}".format(args.throughput))
-    configure_smart_licensing(args.idtoken, args.bootlevel)
+    configure_smart_licensing(args.idtoken, args.throughput)
