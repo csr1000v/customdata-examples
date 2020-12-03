@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
-'''
+"""
 This module/script can be used to set the smart license on C8000V device in cloud.
 
 Please note this script reboots after setting the license to set the boot level.
 After bootlevel is set, user can configure the throughput using "platform hardware throughput level MB <value>"
 
-'''
+"""
 import argparse
 import logging
 import time
@@ -43,10 +43,10 @@ def configure_smart_licensing(idtoken, bootlevel):
         output = cli.cli('show license tech support')
         logger.info("Output of show license summary: {}".format(output))
         if "Smart Licensing is ENABLED" in output:
-            logger.info("Enabling Smart licensing is successful. Sending reboot command to set the boot level")
-            logger.info('When CSR comes up please configure the Throughput using "platform hardware throughput level MB <value>" command')
+            logger.info("Enabling Smart licensing is successful. ")
+            logger.info('Please reboot using reload command to set the boot level. When CSR comes up, configure the Throughput using "platform hardware throughput level MB <value>" command')
             license_status = True
-            cli.executep('reload')
+            #cli.executep('reload')
             return True
     
     logger.warning("There were some issues with configuring Smart Licensing which did not succeed after 5 attempts. Please review configuration")
