@@ -52,6 +52,7 @@ def configure_smart_licensing(idtoken, bootlevel):
             logger.info("Enabling Smart licensing is successful. ")
             logger.info('Please reboot using reload command to set the boot level. When CSR comes up, configure the Throughput using "platform hardware throughput level MB <value>" command')
             license_status = True
+            cli.configurep('platform hardware throughput level MB 250')
             #cli.executep('reload')
             return True
     
