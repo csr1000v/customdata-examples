@@ -15,6 +15,19 @@ Scripts directory in this repository contains various scripts that can be provid
 
 * [```smartLicensingConfigurator.py```](scripts/smartLicensingConfigurator.py)- It takes idtoken of your Cisco Smart Licensing account and Throughput level as Input. Configures Smart licensing on CSR with provided Throughput level.
 
+* [```smartLicensingConfiguratorForC8KV.py```](scripts/smartLicensingConfiguratorForC8KV.py)- It takes idtoken of your Cisco Smart Licensing account and Throughput level as Input. Configures Smart licensing on C8KV with provided Throughput level. Please note it is REQUIRED to configure "license boot level <value>" on the device for this script to work.
+
+    If you are passing this script in customdata/userdata, below is the example on how to pass via userdata section. 
+    Note that along with "Section: scripts" "Section: license" is REQUIRED
+
+    Example:
+
+        Section: license
+        techpackage:<value>
+  
+        Section: scripts
+        https://raw.githubusercontent.com/csr1000v/customdata-examples/master/scripts/smartLicensingConfiguratorForC8KV.py --idtoken <value> --throughput <value>
+
 ## Examples
 Examples directory in this repository contains examples of Custom Data bootstrap config files. Any of the examples in Examples dir can be used as a input to Custom Data for CSR in Azure. 
 
